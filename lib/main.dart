@@ -6,6 +6,7 @@ import 'package:firebase_core/firebase_core.dart';
 
 Future<void> main() async{
   WidgetsFlutterBinding.ensureInitialized();
+  // Connect the Firebase
   await Firebase.initializeApp(
       // options: const FirebaseOptions(
       //     apiKey: "AIzaSyD3f7aaAE_-WPgOK0AVS0WCaDa-7iaUevA",
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(
-      SystemUiOverlayStyle(
+      const SystemUiOverlayStyle(
         statusBarColor: Colors.transparent,
       ),
     );
@@ -33,10 +34,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Job Searching App',
       theme: ThemeData(
-        primaryColor: Color(0xFF43B1B7),
-        accentColor: Color(0xFFFED408),
+        primaryColor: const Color(0xFF43B1B7),
+        accentColor: const Color(0xFFFED408),
       ),
-      home: WidgetTree(),
+      home: const WidgetTree(),
     );
   }
 }

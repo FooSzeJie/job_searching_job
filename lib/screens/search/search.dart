@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:job_searching_app/models/job.dart';
-import 'package:job_searching_app/screens/home/widgets/job_detail.dart';
 import 'package:job_searching_app/screens/search/widgets/search_list.dart';
 import 'package:job_searching_app/screens/search/widgets/search_option.dart';
-import 'package:job_searching_app/widgets/icon_text.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({Key? key}) : super(key: key);
@@ -18,7 +16,7 @@ class _SearchPageState extends State<SearchPage> {
   List<Job> jobs = allJobs;
 
   // Search function
-  void searchBook(String query) {
+  void searchJob(String query) {
     final suggestion = allJobs.where((job) {
       final jobCompany = job.company.toLowerCase();
       final input = query.toLowerCase();
@@ -109,7 +107,7 @@ class _SearchPageState extends State<SearchPage> {
                                 width: 20,
                               ),
                             )),
-                        onChanged: searchBook,
+                        onChanged: searchJob,
                       ),
                     ),
                     const SizedBox(

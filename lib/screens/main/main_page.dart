@@ -79,8 +79,8 @@ class _MainPageState extends State<MainPage> {
           ),
 
           BottomNavigationBarItem(
-            label: 'Chat',
-            icon: Icon(Icons.chat_outlined,
+            label: 'Application',
+            icon: Icon(Icons.list_alt_outlined,
               size: 20.0,
             ),
           ),

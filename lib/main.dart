@@ -36,6 +36,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: const Color(0xFF43B1B7),
         accentColor: const Color(0xFFFED408),
+        fontFamily: 'PoltawskiNowy',
       ),
       home: const WidgetTree(),
     );

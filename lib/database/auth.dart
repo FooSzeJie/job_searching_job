@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 class Auth {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
+  // final userId = FirebaseAuth.instance.currentUser;
 
   User? get currentUser => _firebaseAuth.currentUser;
 
@@ -26,8 +27,12 @@ class Auth {
         password: password
     );
   }
-    Future<void> signOut() async {
-      await _firebaseAuth.signOut();
-    }
 
+  Future<void> signOut() async {
+    await _firebaseAuth.signOut();
+  }
+
+  String? getCurrentUserEmail() {
+    return currentUser?.email;
+  }
 }

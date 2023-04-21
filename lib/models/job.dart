@@ -61,10 +61,10 @@ List<Job> allJobs = [
 
   Job(
     3,
-    'Google LLC,',
-    'assets/images/google_logo.png',
+    'Meta Platforms, Inc.',
+    'assets/images/meta_logo.png',
     'Principle Product Design',
-    '417 Marion, New York\nUnited States',
+    '4 Marion, New York\nUnited States',
     'Full Time',
     [
       "Creative with an eye for shape and colour",
@@ -76,10 +76,10 @@ List<Job> allJobs = [
 
   Job(
     4,
-    'Google LLC,',
-    'assets/images/google_logo.png',
+    'Tencent Holdings Ltd.',
+    'assets/images/tencent_logo.png',
     'Principle Product Design',
-    '417 Marion, New York\nUnited States',
+    '417 Marion, Bei Jing\nChina',
     'Full Time',
     [
       "Creative with an eye for shape and colour",
@@ -91,8 +91,8 @@ List<Job> allJobs = [
 
   Job(
     5,
-    'Airbnb inc.',
-    'assets/images/airbnb_logo.png',
+    'Shell plc',
+    'assets/images/shell_logo.png',
     'VP Business Intelegence',
     '50 Herminia Stravenue,\nCanada',
     'Full Time',
@@ -106,8 +106,8 @@ List<Job> allJobs = [
 
   Job(
     6,
-    'Linkedin corp,',
-    'assets/images/linkedin_logo.png',
+    'Toyota',
+    'assets/images/toyota_logo.png',
     'Talent Acqusition Lead',
     '566 Eleamore Square,\nFrance',
     'Part Time',
@@ -121,10 +121,39 @@ List<Job> allJobs = [
 
   Job(
     7,
-    'Google LLC,',
-    'assets/images/google_logo.png',
+    'Alibaba',
+    'assets/images/alibaba_logo.png',
     'Principle Product Design',
-    '417 Marion, New York\nUnited States',
+    '466 Shun An, bei Jing\nChina',
+    'Full Time',
+    [
+      "Creative with an eye for shape and colour",
+      'Understand different materials and production methods',
+      'How technical, practical and scientific knowledge and ability',
+      'Interested in the way people choose and use products'
+    ],
+  ),
+
+  Job(
+    8,
+    'Microsoft Corporation',
+    'assets/images/microsoft_logo.png',
+    'Principle Product Design',
+    '466 Shun An, bei Jing\nChina',
+    'Full Time',
+    [
+      "Creative with an eye for shape and colour",
+      'Understand different materials and production methods',
+      'How technical, practical and scientific knowledge and ability',
+      'Interested in the way people choose and use products'
+    ],
+  ),
+  Job(
+    9,
+    'Apple Inc',
+    'assets/images/apple_logo.png',
+    'Principle Product Design',
+    '466 Shun An, bei Jing\nChina',
     'Full Time',
     [
       "Creative with an eye for shape and colour",

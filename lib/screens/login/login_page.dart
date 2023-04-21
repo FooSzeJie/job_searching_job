@@ -1,9 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
+import 'package:job_searching_app/database/auth.dart';
 import 'package:flutter/material.dart';
-import 'package:firebase_connect/components/register_button.dart';
-import 'components/login_button.dart';
-import 'components/my_textfield.dart';
+import 'package:job_searching_app/screens/login/widgets/login_button.dart';
+import 'package:job_searching_app/screens/login/widgets/my_textfield.dart';
+import 'package:job_searching_app/screens/login/widgets/register_button.dart';
 // import 'components/square_tile.dart';
 
 class LoginPage extends StatefulWidget {
@@ -14,8 +14,38 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+
+  String? errorMessage = '';
+  bool isLogin = true;
+
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+
+  Future<void> signInWithEmailAndPassword() async {
+    try{
+      await Auth().signInWithEmailAndPassword(
+        email: emailController.text,
+        password: emailController.text
+      );
+    }on FirebaseAuthException catch(e) {
+      setState(() {
+        errorMessage = e.message;
+      });
+    }
+  }
+
+  Future<void> createUserWithEmailAndPassword() async {
+    try{
+      await Auth().createUserWithEmailAndPassword(
+          email: emailController.text,
+          password: emailController.text
+      );
+    }on FirebaseAuthException catch(e) {
+      setState(() {
+        errorMessage = e.message;
+      });
+    }
+  }
 
   @override
   void dispose() {
@@ -92,11 +122,9 @@ class _LoginPageState extends State<LoginPage> {
                 // sign in button
                 LoginButton(
                   onTap: () {
+
                     try{
-                      FirebaseAuth.instance.signInWithEmailAndPassword(
-                        email: emailController.text.trim(),
-                        password: passwordController.text.trim(),
-                      );
+                      signInWithEmailAndPassword();
                     }
                     catch (e) {
                       print(e);
@@ -108,10 +136,7 @@ class _LoginPageState extends State<LoginPage> {
 
                 RegisterButton(
                   onTap: () {
-                    FirebaseAuth.instance.createUserWithEmailAndPassword(
-                      email: emailController.text.trim(),
-                      password: passwordController.text.trim(),
-                    );
+                    createUserWithEmailAndPassword();
                   },
                 ),
               ],

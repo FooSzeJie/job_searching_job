@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:job_searching_app/database/job_database.dart';
 import 'package:job_searching_app/models/job.dart';
 import 'package:job_searching_app/widgets/icon_text.dart';
 
@@ -154,7 +155,19 @@ class SearchJobDetail extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20.0),
                     )
                 ),
-                onPressed: () {},
+                onPressed: () async {
+
+                  await JobDatabase.addItem(
+                      jobId: job.jobId,
+                      company: job.company,
+                      logoUrl: job.logoUrl,
+                      isMark: job.isMark,
+                      title: job.title,
+                      location: job.location,
+                      time: job.time,
+                      req: job.req
+                  );
+                },
                 child: Text('Apply Now'),
               ),
             ),

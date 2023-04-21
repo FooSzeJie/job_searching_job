@@ -23,6 +23,7 @@ class _SearchOptionState extends State<SearchOption> {
     var keys = optionMap.keys.toList();
     
     return Container(
+      margin: EdgeInsets.fromLTRB(0, 30, 0, 15),
       height: 25.0,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,

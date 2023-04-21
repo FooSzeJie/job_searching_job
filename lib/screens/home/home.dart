@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:job_searching_app/screens/NavigationBar/nav_bar.dart';
 import 'package:job_searching_app/screens/home/widgets/home_app_bar.dart';
 import 'package:job_searching_app/screens/home/widgets/job_list.dart';
 import 'package:job_searching_app/screens/home/widgets/search_card.dart';

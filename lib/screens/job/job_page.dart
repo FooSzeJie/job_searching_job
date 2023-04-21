@@ -12,6 +12,7 @@ class JobPage extends StatefulWidget {
 
 class _JobPageState extends State<JobPage> {
 
+  // Job data from the Job Models
   List<Job> jobs = allJobs;
 
   @override
@@ -20,6 +21,7 @@ class _JobPageState extends State<JobPage> {
       resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
+          // Background
           Row(
             children: [
               Expanded(
@@ -39,8 +41,8 @@ class _JobPageState extends State<JobPage> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              JobAppBar(),
-
+              // Widgets in the job Page
+              const JobAppBar(),
               JobList(),
             ],
           ),

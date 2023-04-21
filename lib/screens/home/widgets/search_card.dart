@@ -6,9 +6,10 @@ class SearchCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Search card
     return Container(
-      margin: EdgeInsets.all(25.0),
-      padding: EdgeInsets.symmetric(
+      margin: const EdgeInsets.all(25.0),
+      padding: const EdgeInsets.symmetric(
         horizontal: 25,
         vertical: 40.0,
       ),
@@ -16,7 +17,7 @@ class SearchCard extends StatelessWidget {
       width: double.maxFinite,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(30.0),
-        image: DecorationImage(
+        image: const DecorationImage(
           image: AssetImage('assets/images/search_bg.jpg'),
           fit: BoxFit.cover,
         ),
@@ -24,16 +25,16 @@ class SearchCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text("Fast Search",
+          const Text("Fast Search",
             style: TextStyle(
               color: Colors.white,
               fontSize: 26,
             ),
           ),
 
-          SizedBox(height: 19,),
+          const SizedBox(height: 19,),
 
-          Text('You can search quickly for\n the job you want',
+          const Text('You can search quickly for\n the job you want',
             style: TextStyle(
               height: 1.8,
               color: Colors.white,
@@ -41,16 +42,16 @@ class SearchCard extends StatelessWidget {
           ),
           ),
 
-          SizedBox(height: 30.0,),
+          const SizedBox(height: 30.0,),
 
           GestureDetector(
             onTap: () {
               Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => SearchPage())
+                MaterialPageRoute(builder: (context) => const SearchPage())
               );
             },
             child: Container(
-              padding: EdgeInsets.all(15),
+              padding: const EdgeInsets.all(15),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(30.0),
@@ -61,9 +62,9 @@ class SearchCard extends StatelessWidget {
                   width: 20,
                   ),
 
-                  SizedBox(width: 10,),
+                  const SizedBox(width: 10,),
 
-                  Text('Search',
+                  const Text('Search',
                     style: TextStyle(
                       color: Colors.grey,
                       fontSize: 18.0,

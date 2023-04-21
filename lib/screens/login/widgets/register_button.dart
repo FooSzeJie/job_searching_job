@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class RegisterButton extends StatelessWidget {
+  // Get the patch
   final Function()? onTap;
 
   const RegisterButton({super.key, required this.onTap});

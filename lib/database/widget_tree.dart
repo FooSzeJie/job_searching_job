@@ -16,9 +16,11 @@ class _WidgetTreeState extends State<WidgetTree> {
     return StreamBuilder(
       stream: Auth().authStateChanges,
       builder: (context, snapshot) {
+        // If Already login, enter to MainPage
         if (snapshot.hasData) {
           return const MainPage();
         }
+        // If haven't login, will go to the login page
         else {
           return const LoginPage();
         }

@@ -5,10 +5,11 @@ class ApplicationAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // The title in the Application Page
     return Container(
-        alignment: Alignment(0, 0),
-        padding: EdgeInsets.fromLTRB(0, 40, 0, 0),
-        child: Text(
+        alignment: const Alignment(0, 0),
+        padding: const EdgeInsets.fromLTRB(0, 40, 0, 0),
+        child: const Text(
           'Application List',
           style: TextStyle(
             color: Colors.black38,

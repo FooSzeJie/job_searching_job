@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:job_searching_app/models/job.dart';
 import 'package:job_searching_app/screens/home/widgets/job_detail.dart';
-import 'package:job_searching_app/screens/home/widgets/job_item.dart';
-import 'package:job_searching_app/screens/search/widgets/search_app_bar.dart';
-import 'package:job_searching_app/screens/search/widgets/search_job_detail.dart';
-import 'package:job_searching_app/screens/search/widgets/search_list.dart';
 import 'package:job_searching_app/screens/search/widgets/search_option.dart';
 import 'package:job_searching_app/widgets/icon_text.dart';
 
@@ -16,8 +12,11 @@ class SearchPage extends StatefulWidget {
 }
 
 class _SearchPageState extends State<SearchPage> {
+
+  // Get the data from the Job Model
   List<Job> jobs = allJobs;
 
+  // Search function
   void searchBook(String query) {
     final suggestion = allJobs.where((job) {
       final jobCompany = job.company.toLowerCase();
@@ -37,6 +36,7 @@ class _SearchPageState extends State<SearchPage> {
       resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
+          // Background
           Row(
             children: [
               Expanded(
@@ -55,6 +55,8 @@ class _SearchPageState extends State<SearchPage> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+
+              // Component of the head of the Search Page
               Container(
                 padding: EdgeInsets.only(
                   top: MediaQuery.of(context).padding.top,
@@ -69,18 +71,18 @@ class _SearchPageState extends State<SearchPage> {
                         Navigator.of(context).pop();
                       },
                       child: Container(
-                        padding: EdgeInsets.all(5),
+                        padding: const EdgeInsets.all(5),
                         decoration: BoxDecoration(
                           color: Theme.of(context).primaryColor,
                           shape: BoxShape.circle,
                         ),
-                        child: Icon(
+                        child: const Icon(
                           Icons.arrow_back,
                           color: Colors.white,
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 20,
                     ),
                     Expanded(
@@ -94,13 +96,13 @@ class _SearchPageState extends State<SearchPage> {
                               borderSide: BorderSide.none,
                             ),
                             hintText: 'Search',
-                            hintStyle: TextStyle(
+                            hintStyle: const TextStyle(
                               color: Colors.grey,
                               fontSize: 18,
                             ),
                             contentPadding: EdgeInsets.zero,
                             prefixIcon: Container(
-                              padding: EdgeInsets.all(15),
+                              padding: const EdgeInsets.all(15),
                               child: Image.asset(
                                 'assets/icons/search.png',
                                 width: 20,
@@ -109,13 +111,13 @@ class _SearchPageState extends State<SearchPage> {
                         onChanged: searchBook,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10.0,
                     ),
                     Container(
                       height: 50.0,
                       width: 50.0,
-                      padding: EdgeInsets.all(13),
+                      padding: const EdgeInsets.all(13),
                       decoration: BoxDecoration(
                         color: Theme.of(context).accentColor,
                         borderRadius: BorderRadius.circular(25),
@@ -126,8 +128,10 @@ class _SearchPageState extends State<SearchPage> {
                 ),
               ),
 
-              SearchOption(),
+              // Component of the option of the search Pge
+              const SearchOption(),
 
+              // Search Result
               Expanded(
                 child: ListView.builder(
                     itemCount: jobs.length,
@@ -145,8 +149,8 @@ class _SearchPageState extends State<SearchPage> {
                         },
                         child: Container(
                           width: 270,
-                          padding: EdgeInsets.all(20),
-                          margin: EdgeInsets.symmetric(vertical: 10.0),
+                          padding: const EdgeInsets.all(20),
+                          margin: const EdgeInsets.symmetric(vertical: 10.0),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(30),
                             color: Colors.white,
@@ -162,7 +166,7 @@ class _SearchPageState extends State<SearchPage> {
                                       Container(
                                         height: 40.0,
                                         width: 40.0,
-                                        padding: EdgeInsets.all(8),
+                                        padding: const EdgeInsets.all(8),
                                         decoration: BoxDecoration(
                                           borderRadius: BorderRadius.circular(10),
                                           color: Colors.grey.withOpacity(0.1),
@@ -170,10 +174,10 @@ class _SearchPageState extends State<SearchPage> {
                                         child: Image.asset(job.logoUrl),
                                       ),
 
-                                      SizedBox(width: 10.0,),
+                                      const SizedBox(width: 10.0,),
 
                                       Text(job.company,
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                           color: Colors.grey,
                                           fontSize: 16.0,
                                           fontWeight: FontWeight.bold,
@@ -181,28 +185,23 @@ class _SearchPageState extends State<SearchPage> {
                                       ),
                                     ],
                                   ),
-
-                                  Icon(job.isMark ? Icons.bookmark : Icons.bookmark_outline_outlined,
-                                    color: job.isMark ? Theme.of(context).primaryColor: Colors.white,
-                                  ),
                                 ],
                               ),
 
-                              SizedBox(height: 15.0,),
+                              const SizedBox(height: 15.0,),
 
                               Text(job.title,
-                                style: TextStyle(
+                                style: const TextStyle(
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
 
-                              SizedBox(height: 15.0,),
+                              const SizedBox(height: 15.0,),
 
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
                                   IconText(Icons.location_on_outlined, job.location),
-                                  if(job.isMark) IconText(Icons.access_time_outlined, job.time),
                                 ],
                               )
                             ],

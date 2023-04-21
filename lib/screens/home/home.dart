@@ -12,6 +12,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
+          // Background
           Row(
             children: [
               Expanded(
@@ -32,9 +33,10 @@ class HomePage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                HomeAppBar(),
-                SearchCard(),
-                TagList(),
+                // The Widgets in the Home Page
+                const HomeAppBar(),
+                const SearchCard(),
+                const TagList(),
                 JobList(),
               ],
             ),

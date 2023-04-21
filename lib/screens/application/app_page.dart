@@ -10,12 +10,14 @@ class ApplicationPage extends StatefulWidget {
 }
 
 class _ApplicationPageState extends State<ApplicationPage> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
+          // Background Color
           Row(
             children: [
               Expanded(
@@ -32,9 +34,10 @@ class _ApplicationPageState extends State<ApplicationPage> {
             ],
           ),
 
+          // The ApplicationPage Content
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
+            children: const [
               ApplicationAppBar(),
               ApplicationList(),
             ],

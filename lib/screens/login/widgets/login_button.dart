@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
+// Login Button
 class LoginButton extends StatelessWidget {
+  // Get the patch
   final Function()? onTap;
 
   const LoginButton({super.key, required this.onTap});

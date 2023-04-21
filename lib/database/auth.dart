@@ -1,13 +1,15 @@
 import 'package:firebase_auth/firebase_auth.dart';
 
 class Auth {
+  // Get the firebase data
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
-  // final userId = FirebaseAuth.instance.currentUser;
 
+  // Get the now account
   User? get currentUser => _firebaseAuth.currentUser;
 
   Stream<User?> get authStateChanges => _firebaseAuth.authStateChanges();
 
+  // Sign In Function
   Future<void> signInWithEmailAndPassword({
     required String email,
     required String password,
@@ -18,6 +20,7 @@ class Auth {
     );
   }
 
+  // Register Function
   Future<void> createUserWithEmailAndPassword({
     required String email,
     required String password,
@@ -28,10 +31,12 @@ class Auth {
     );
   }
 
+  // Sign Out function
   Future<void> signOut() async {
     await _firebaseAuth.signOut();
   }
 
+  // Get the current account email
   String? getCurrentUserEmail() {
     return currentUser?.email;
   }

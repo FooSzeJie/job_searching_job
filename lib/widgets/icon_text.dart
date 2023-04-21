@@ -4,7 +4,8 @@ class IconText extends StatelessWidget {
   final IconData icon;
   final String text;
 
-  IconText(this.icon, this.text);
+  // Constructor
+  const IconText(this.icon, this.text, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,11 +17,11 @@ class IconText extends StatelessWidget {
             color: Colors.yellow,
           ),
 
-          SizedBox(width: 18,),
+          const SizedBox(width: 18,),
 
           Text(
               text,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 12.0,
                 color: Colors.grey,
               ),

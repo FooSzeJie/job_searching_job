@@ -6,13 +6,15 @@ import 'package:job_searching_app/widgets/icon_text.dart';
 class JobDetail extends StatelessWidget {
   final Job job;
 
-  JobDetail(this.job);
+  // Constructor
+  const JobDetail(this.job, {super.key});
 
   @override
   Widget build(BuildContext context) {
+    // Job Detail
     return Container(
-      padding: EdgeInsets.all(25.0),
-      decoration: BoxDecoration(
+      padding: const EdgeInsets.all(25.0),
+      decoration: const BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(30),
@@ -29,7 +31,7 @@ class JobDetail extends StatelessWidget {
               color: Colors.grey.withOpacity(0.3),
             ),
 
-            SizedBox(height: 30.0,),
+            const SizedBox(height: 30.0,),
 
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -50,30 +52,14 @@ class JobDetail extends StatelessWidget {
                           child: Image.asset(job.logoUrl),
                         ),
 
-                        SizedBox(width: 30.0,),
+                        const SizedBox(width: 30.0,),
 
                         Text(
                           job.company,
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 16.0,
                           ),
                         ),
-                      ],
-                    ),
-
-                    Row(
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            // job.changeBookMark();
-                            print(job.isMark);
-                          },
-                          child: Icon(
-                            job.isMark ? Icons.bookmark : Icons.bookmark_outline_rounded,
-                            color: job.isMark ? Theme.of(context).primaryColor : Colors.black,
-                          ),
-                        ),
-                        Icon(Icons.more_horiz_outlined),
                       ],
                     ),
                   ],
@@ -81,17 +67,17 @@ class JobDetail extends StatelessWidget {
               ],
             ),
 
-            SizedBox(height: 20.0,),
+            const SizedBox(height: 20.0,),
 
             Text(
               job.title,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 26,
                 fontWeight: FontWeight.bold,
               ),
             ),
 
-            SizedBox(height: 15.0,),
+            const SizedBox(height: 15.0,),
 
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -101,39 +87,40 @@ class JobDetail extends StatelessWidget {
               ],
             ),
 
-            SizedBox(height: 30.0,),
+            const SizedBox(height: 30.0,),
 
-            Text(
+            const Text(
               'Requirement',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
               ),
             ),
 
-            SizedBox(height: 10.0),
+            const SizedBox(height: 10.0),
 
+            // Display the data in list
             ...job.req.map((e) => Container(
-              margin: EdgeInsets.symmetric(vertical: 5 ),
+              margin: const EdgeInsets.symmetric(vertical: 5 ),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                    margin: EdgeInsets.only(top: 10),
+                    margin: const EdgeInsets.only(top: 10),
                     height: 5,
                     width: 5,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       shape: BoxShape.circle,
                       color: Colors.black,
                     ),
                   ),
 
-                  SizedBox(width: 10,),
+                  const SizedBox(width: 10,),
 
                   ConstrainedBox(
-                    constraints: BoxConstraints(maxWidth: 300),
+                    constraints: const BoxConstraints(maxWidth: 300),
                     child: Text(
                       e,
-                      style: TextStyle(
+                      style: const TextStyle(
                         wordSpacing: 2.5,
                         height: 1.5,
                       ),
@@ -144,7 +131,7 @@ class JobDetail extends StatelessWidget {
             )).toList(),
 
             Container(
-              margin: EdgeInsets.symmetric(vertical: 25.0),
+              margin: const EdgeInsets.symmetric(vertical: 25.0),
               height: 45.0,
               width: double.maxFinite,
               child: ElevatedButton(
@@ -157,18 +144,18 @@ class JobDetail extends StatelessWidget {
                 ),
                 onPressed: () async {
 
+                  // Add data to the firebase Database
                   await JobDatabase.addItem(
                       jobId: job.jobId,
                       company: job.company,
                       logoUrl: job.logoUrl,
-                      isMark: job.isMark,
                       title: job.title,
                       location: job.location,
                       time: job.time,
                       req: job.req
                   );
                 },
-                child: Text('Apply Now'),
+                child: const Text('Apply Now'),
               ),
             ),
           ],

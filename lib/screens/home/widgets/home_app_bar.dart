@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:job_searching_app/database/auth.dart';
 
 class HomeAppBar extends StatelessWidget {
   const HomeAppBar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    // The head of the home Page
     return Container(
       padding: EdgeInsets.only(
         top: MediaQuery.of(context).padding.top,
@@ -17,7 +19,7 @@ class HomeAppBar extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
+              const Text(
                 'Welcome Home',
                 style: TextStyle(
                   color: Colors.grey,
@@ -25,11 +27,11 @@ class HomeAppBar extends StatelessWidget {
                 ),
               ),
 
-              SizedBox(height: 10.0,),
+              const SizedBox(height: 10.0,),
 
               Text(
-                ' Annie Brayant',
-                style: TextStyle(
+                '${Auth().getCurrentUserEmail()}',
+                style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 28.0,
                 ),
@@ -40,14 +42,14 @@ class HomeAppBar extends StatelessWidget {
           Row(
             children: [
               Container(
-                margin: EdgeInsets.only(
+                margin: const EdgeInsets.only(
                   top: 30.0,
                   right: 10.0,
                 ),
                 transform: Matrix4.rotationZ(100),
                 child: Stack(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.notifications_none_outlined,
                       size: 30.0,
                       color: Colors.grey,
@@ -57,8 +59,8 @@ class HomeAppBar extends StatelessWidget {
                       top: 0,
                       right: 0,
                       child: Container(
-                        padding: EdgeInsets.all(4),
-                        decoration: BoxDecoration(
+                        padding: const EdgeInsets.all(4),
+                        decoration: const BoxDecoration(
                           color: Colors.red,
                           shape: BoxShape.circle,
                         ),
@@ -68,7 +70,7 @@ class HomeAppBar extends StatelessWidget {
                 ),
               ),
 
-              SizedBox(width: 20.0,),
+              const SizedBox(width: 20.0,),
 
               ClipOval(
                 child: Image.asset(

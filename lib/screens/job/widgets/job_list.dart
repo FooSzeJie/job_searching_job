@@ -4,7 +4,8 @@ import 'package:job_searching_app/screens/job/widgets/job_detail.dart';
 import 'package:job_searching_app/screens/job/widgets/job_item.dart';
 
 class JobList extends StatelessWidget {
-  // final jobList = Job.generateJobs();
+
+  // Job List Data in Job Model
   final jobs = allJobs;
 
   JobList({Key? key}) : super(key: key);
@@ -14,11 +15,11 @@ class JobList extends StatelessWidget {
     return Expanded(
       child: Container(
           height: 600,
-          margin: EdgeInsets.only(
+          margin: const EdgeInsets.only(
             top: 25,
           ),
           child: ListView.separated(
-              padding: EdgeInsets.only(
+              padding: const EdgeInsets.only(
                 top: 12.5,
                 left: 25.0,
                 right: 25.0,
@@ -27,6 +28,7 @@ class JobList extends StatelessWidget {
               itemBuilder: (context, index) => GestureDetector(
 
                 onTap: () {
+                  // Pop up the Modal after onClick
                   showModalBottomSheet(
                     backgroundColor: Colors.white,
                     isScrollControlled: true,
@@ -36,7 +38,7 @@ class JobList extends StatelessWidget {
                 },
                 child: JobItem(jobs[index]),
               ),
-              separatorBuilder: (_, index) => SizedBox(height: 20.0,),
+              separatorBuilder: (_, index) => const SizedBox(height: 20.0,),
               itemCount: allJobs.length
           ),
       ),

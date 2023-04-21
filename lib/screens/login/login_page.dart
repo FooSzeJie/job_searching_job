@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:job_searching_app/screens/login/widgets/login_button.dart';
 import 'package:job_searching_app/screens/login/widgets/my_textfield.dart';
 import 'package:job_searching_app/screens/login/widgets/register_button.dart';
-// import 'components/square_tile.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -16,11 +15,15 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
 
   String? errorMessage = '';
+
+  // Check Whether login
   bool isLogin = true;
 
+  // Text Controller
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
+  // Sign in Function
   Future<void> signInWithEmailAndPassword() async {
     try{
       await Auth().signInWithEmailAndPassword(
@@ -34,6 +37,7 @@ class _LoginPageState extends State<LoginPage> {
     }
   }
 
+  // Register Function
   Future<void> createUserWithEmailAndPassword() async {
     try{
       await Auth().createUserWithEmailAndPassword(
@@ -45,13 +49,6 @@ class _LoginPageState extends State<LoginPage> {
         errorMessage = e.message;
       });
     }
-  }
-
-  @override
-  void dispose() {
-    emailController.dispose();
-    passwordController.dispose();
-    super.dispose();
   }
 
   @override

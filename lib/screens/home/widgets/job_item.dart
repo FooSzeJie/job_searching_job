@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:job_searching_app/models/job.dart';
 import 'package:job_searching_app/widgets/icon_text.dart';
-
-import '../../../models/job.dart';
 
 class JobItem extends StatelessWidget {
 
   final Job job;
   final bool showTime;
-  JobItem(this.job, {this.showTime = false});
+
+  // Constructor
+  const JobItem(this.job, {super.key, this.showTime = false});
 
   @override
   Widget build(BuildContext context) {
+    // The job Item
     return Container(
       width: 270,
-      padding: EdgeInsets.all(20),
+      padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(30),
         color: Colors.white,
@@ -29,7 +31,7 @@ class JobItem extends StatelessWidget {
                   Container(
                     height: 40.0,
                       width: 40.0,
-                      padding: EdgeInsets.all(8),
+                      padding: const EdgeInsets.all(8),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
                       color: Colors.grey.withOpacity(0.1),
@@ -37,10 +39,10 @@ class JobItem extends StatelessWidget {
                     child: Image.asset(job.logoUrl),
                   ),
 
-                  SizedBox(width: 10.0,),
+                  const SizedBox(width: 10.0,),
 
                   Text(job.company,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: Colors.grey,
                       fontSize: 16.0,
                       fontWeight: FontWeight.bold,
@@ -49,21 +51,18 @@ class JobItem extends StatelessWidget {
                 ],
               ),
 
-              Icon(job.isMark ? Icons.bookmark : Icons.bookmark_outline_outlined,
-                color: job.isMark ? Theme.of(context).primaryColor: Colors.white,
-              ),
             ],
           ),
 
           SizedBox(height: 15.0,),
 
           Text(job.title,
-            style: TextStyle(
+            style: const TextStyle(
               fontWeight: FontWeight.bold,
             ),
           ),
 
-          SizedBox(height: 15.0,),
+          const SizedBox(height: 15.0,),
           
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

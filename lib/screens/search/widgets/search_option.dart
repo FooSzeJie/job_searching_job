@@ -23,20 +23,21 @@ class _SearchOptionState extends State<SearchOption> {
     var keys = optionMap.keys.toList();
     
     return Container(
-      margin: EdgeInsets.fromLTRB(0, 30, 0, 15),
+      margin: const EdgeInsets.fromLTRB(0, 30, 0, 15),
       height: 25.0,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
-        padding: EdgeInsets.symmetric(horizontal: 25.0),
+        padding: const EdgeInsets.symmetric(horizontal: 25.0),
         itemBuilder: (context, index) => GestureDetector(
           onTap: () {
+            // Will select the option after onTap
             setState(() {
               var res = optionMap[keys[index]] ?? false;
               optionMap[keys[index]] = !res;
             });
           },
           child: Container(
-            padding: EdgeInsets.symmetric(
+            padding: const EdgeInsets.symmetric(
               vertical: 5.0,
               horizontal: 10.0,
             ),
@@ -59,9 +60,10 @@ class _SearchOptionState extends State<SearchOption> {
                   ),
                 ),
 
+                // When the option already selected, will show the x
                 if(optionMap[keys[index]] != null && optionMap[keys[index]] == true)
                   Row(
-                    children: [
+                    children: const [
                       SizedBox(width: 10.0,),
                       Icon(
                         Icons.close,
@@ -74,7 +76,7 @@ class _SearchOptionState extends State<SearchOption> {
             ),
           ),
         ),
-        separatorBuilder: (_, index) => SizedBox(width: 10.0,),
+        separatorBuilder: (_, index) => const SizedBox(width: 10.0,),
         itemCount: optionMap.length
       ),
     );

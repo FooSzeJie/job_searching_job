@@ -1,24 +1,28 @@
  import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:job_searching_app/database/job_database.dart';
+import 'package:job_searching_app/screens/application/widgets/application_detail.dart';
 
 class ApplicationList extends StatelessWidget {
    const ApplicationList({Key? key}) : super(key: key);
 
    @override
    Widget build(BuildContext context) {
+     // Display the data from the firebase database
      return StreamBuilder<QuerySnapshot>(
+       // Use read function from the JobDatabase
        stream: JobDatabase.readItems(),
        builder: (context, snapshot) {
          if(snapshot.hasError) {
-           return Text('Something went wrong');
+           // When occur error will display this word
+           return const Text('Something went wrong');
          }
+         // If having data will display like list
          else if(snapshot.hasData || snapshot.data != null) {
            return ListView.separated(
              scrollDirection: Axis.vertical,
              shrinkWrap: true,
-             itemBuilder: (context, index) => SizedBox(height: 16.0,),
-             separatorBuilder: (context, index) {
+             itemBuilder: (context, index) {
                var jobInfo = snapshot.data!.docs[index].data() as Map<String, dynamic>;
                String jobID = snapshot.data!.docs[index].id;
 
@@ -26,34 +30,53 @@ class ApplicationList extends StatelessWidget {
                int jobId = jobInfo['jobId'];
                String company = jobInfo['company'];
                String logoUrl = jobInfo['logoUrl'];
-               bool isMark = jobInfo['isMark'];
                String title = jobInfo['title'];
                String location = jobInfo['location'];
                String time = jobInfo['time'];
                List <String> req = jobInfo['req'].cast<String>();
 
-               return Ink(
+               // The Job Item
+               return Container(
+                 margin: const EdgeInsets.symmetric(horizontal: 10.0),
                  decoration: BoxDecoration(
-                   color: Colors.blueGrey,
+                   color: Colors.white,
+                   border: Border.all(
+                     color: Colors.grey,
+                   ),
                    borderRadius: BorderRadius.circular(8.0),
                  ),
                  child: ListTile(
                    shape: RoundedRectangleBorder(
                      borderRadius: BorderRadius.circular(8.0),
                    ),
-                   onTap: () {},
+                   onTap: () {
+                     // Show a Modal
+                     showModalBottomSheet(
+                       backgroundColor: Colors.white,
+                       isScrollControlled: true,
+                       context: context,
+                       // Pop up ApplicationDetail after on-tap
+                       builder: (context) => ApplicationDetail(jobId, company, logoUrl, title, location, time, req, jobID),
+                     );
+                   },
                    title: Text(
                      company,
+                     maxLines: 1,
+                     overflow: TextOverflow.ellipsis,
+                   ),
+                   subtitle: Text(
+                     time,
                      maxLines: 1,
                      overflow: TextOverflow.ellipsis,
                    ),
                  ),
                );
              },
+             separatorBuilder: (context, index) => const SizedBox(height: 16.0,),
              itemCount: snapshot.data!.docs.length,
            );
          }
-         return Center(
+         return const Center(
            child: CircularProgressIndicator(
              valueColor: AlwaysStoppedAnimation<Color>(Colors.orangeAccent),
            ),

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:job_searching_app/screens/application/app_page.dart';
-import 'package:job_searching_app/screens/bookmark/bookmark_page.dart';
 import 'package:job_searching_app/screens/home/home.dart';
 import 'package:job_searching_app/database//auth.dart';
 import 'package:job_searching_app/screens/job/job_page.dart';
+import 'package:job_searching_app/screens/main/logoutFunction.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -14,27 +14,33 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
 
+  // All the Mainpage in App
   List pages = [
-    HomePage(),
-    JobPage(),
-    BookmarkPage(),
-    ApplicationPage(),
+    const HomePage(),
+    const JobPage(),
+    const ApplicationPage(),
+    const Logout()
   ];
 
+  // page now
   int currentIndex = 0;
 
+  // Sign out function
   Future<void> signOut() async {
     await Auth().signOut();
   }
 
-  void onTap(int index) {
+  // change the currentIndex number after On-tap for going to the other pages
+  void onTap(int index) async{
+    currentIndex;
+
     setState(() {
       currentIndex = index;
-
-      if(currentIndex == 4) {
-        signOut();
-      }
     });
+
+    if(currentIndex == 3) {
+      await signOut();
+    }
   }
 
   @override
@@ -43,12 +49,8 @@ class _MainPageState extends State<MainPage> {
       backgroundColor: Colors.white,
       body: pages[currentIndex],
 
+      // Bottom Navigator Bar
       bottomNavigationBar: BottomNavigationBar(
-        // onTap: onTap,
-        // showSelectedLabels: false,
-        // showUnselectedLabels: false,
-        // selectedItemColor: Theme.of(context).primaryColor,
-        // type: BottomNavigationBarType.fixed,
         unselectedFontSize: 0,
         selectedFontSize: 0,
         type: BottomNavigationBarType.fixed,
@@ -60,7 +62,8 @@ class _MainPageState extends State<MainPage> {
         showUnselectedLabels: false,
         showSelectedLabels: false,
         elevation: 0,
-        items: [
+        items: const [
+          // Each Bottom Button
           BottomNavigationBarItem(
             label: 'Home',
             icon: Icon(Icons.home,
@@ -71,13 +74,6 @@ class _MainPageState extends State<MainPage> {
           BottomNavigationBarItem(
             label: 'Case',
             icon: Icon(Icons.cases_outlined,
-              size: 20.0,
-            ),
-          ),
-
-          BottomNavigationBarItem(
-            label: 'BookMark',
-            icon: Icon(Icons.bookmark,
               size: 20.0,
             ),
           ),

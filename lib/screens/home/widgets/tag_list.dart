@@ -9,13 +9,14 @@ class TagList extends StatefulWidget {
 
 class _TagListState extends State<TagList> {
 
+  // Show the tags
   final tagsList = <String> ['All', '⚡  Popular', '✨  Featured'];
   var selected = 0;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(
+      padding: const EdgeInsets.symmetric(
         horizontal: 25.0,
       ),
       height: 40,
@@ -28,7 +29,7 @@ class _TagListState extends State<TagList> {
             });
           },
           child: Container(
-            padding: EdgeInsets.symmetric(
+            padding: const EdgeInsets.symmetric(
               vertical: 10.0,
               horizontal: 20.0,
             ),
@@ -42,7 +43,7 @@ class _TagListState extends State<TagList> {
             child: Text(tagsList[index]),
           ),
         ),
-        separatorBuilder: (_, index) => SizedBox(
+        separatorBuilder: (_, index) => const SizedBox(
           width: 15.0,
         ),
         itemCount: tagsList.length,

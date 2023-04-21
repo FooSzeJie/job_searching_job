@@ -1,10 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:job_searching_app/screens/home/home.dart';
+import 'package:job_searching_app/database//widget_tree.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+
+Future<void> main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+      // options: const FirebaseOptions(
+      //     apiKey: "AIzaSyD3f7aaAE_-WPgOK0AVS0WCaDa-7iaUevA",
+      //     appId: "1:1060739077677:android:3f5ff7a720da2385604aa4",
+      //     messagingSenderId: "1060739077677",
+      //     projectId: "jobsearchingapp-b589e",
+      // ),
+  );
   runApp(const MyApp());
 }
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -24,7 +36,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Color(0xFF43B1B7),
         accentColor: Color(0xFFFED408),
       ),
-      home: HomePage(),
+      home: WidgetTree(),
     );
   }
 }

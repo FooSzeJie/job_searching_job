@@ -6,7 +6,7 @@ import '../../../models/job.dart';
 
 class JobList extends StatelessWidget {
 
-  final jobList = Job.generateJobs();
+  final jobList = allJobs;
 
   @override
   Widget build(BuildContext context) {

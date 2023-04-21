@@ -62,9 +62,15 @@ class JobDetail extends StatelessWidget {
 
                     Row(
                       children: [
-                        Icon(
-                          job.isMark ? Icons.bookmark : Icons.bookmark_outline_rounded,
-                          color: job.isMark ? Theme.of(context).primaryColor : Colors.black,
+                        GestureDetector(
+                          onTap: () {
+                            // job.changeBookMark();
+                            print(job.isMark);
+                          },
+                          child: Icon(
+                            job.isMark ? Icons.bookmark : Icons.bookmark_outline_rounded,
+                            color: job.isMark ? Theme.of(context).primaryColor : Colors.black,
+                          ),
                         ),
                         Icon(Icons.more_horiz_outlined),
                       ],

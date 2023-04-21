@@ -154,6 +154,8 @@ class JobDetail extends StatelessWidget {
                       time: job.time,
                       req: job.req
                   );
+
+                  Navigator.of(context).pop();
                 },
                 child: const Text('Apply Now'),
               ),

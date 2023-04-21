@@ -159,6 +159,7 @@ class _ApplicationDetailState extends State<ApplicationDetail> {
                   await JobDatabase.deleteItems(
                       jobId: widget.JobID
                   );
+                  Navigator.of(context).pop();
                 },
                 child: const Text('Delete Apply'),
               ),

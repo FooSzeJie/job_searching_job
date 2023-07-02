@@ -35,14 +35,12 @@ class _ApplicationPageState extends State<ApplicationPage> {
           ),
 
           // The ApplicationPage Content
-          SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-                ApplicationAppBar(),
-                ApplicationList(),
-              ],
-            ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: const [
+              ApplicationAppBar(),
+              ApplicationList(),
+            ],
           ),
         ],
       ),
